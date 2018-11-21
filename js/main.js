@@ -29,24 +29,27 @@ arrowsContainer.innerHTML = arrowsWrap;
 appContainer.appendChild(arrowsContainer);
 
 
+// Массив всех слайдов
+const screens = Array
+  .from(document.querySelectorAll(`template`))
+  .map((it) => it.content);
+
+
 // Функция переключения слайдов
 const selectSlide = (slide) => {
   mainElement.innerHTML = ``;
   mainElement.appendChild(slide.cloneNode(true));
 };
 
-
-// Массив всех слайдов
-const screens = Array.from(document.querySelectorAll(`template`)).
-map((it) => it.content);
-
-
 // функция выбора следующего и предыдущего слайда
 let current = 0;
 const select = (index) => {
+  // current = (current + index) % (screens.length + 1);
+
   index = index < 0 ? screens.length - 1 : index;
   index = index >= screens.length ? 0 : index;
   current = index;
+
   selectSlide(screens[current]);
 };
 
@@ -64,7 +67,6 @@ document.addEventListener(`keydown`, (event) => {
       break;
   }
 });
-
 
 const arrows = document.querySelectorAll(`.arrows__btn`);
 
