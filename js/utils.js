@@ -1,6 +1,7 @@
 // utils.js
 const QUESTIONS_AMOUNT = 10;
 const LIVES = 3;
+const QUESTIONS_TIME = 30;
 
 export function getElementFromTemplate(str) {
   const element = document.createElement(`div`);
@@ -18,7 +19,7 @@ export function calculateTotalScore(answersArr, lives) {
   if (answersArr.length === QUESTIONS_AMOUNT) {
     const rightAnswers = answersArr.filter((answer) => answer.right);
     const mistakes = LIVES - lives;
-    const fastAnswers = answersArr.filter((answer) => answer.time < 30);
+    const fastAnswers = answersArr.filter((answer) => answer.time < QUESTIONS_TIME);
     totalScore = rightAnswers.length - mistakes * 2;
     if (fastAnswers.length > 0) {
       totalScore += fastAnswers.length;
