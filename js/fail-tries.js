@@ -1,6 +1,5 @@
 // fail-tries.js
 
-
 import {getElementFromTemplate} from './utils.js';
 import {renderView} from './utils.js';
 import welcomeView from './welcome.js';
