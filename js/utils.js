@@ -8,6 +8,7 @@ export function getElementFromTemplate(str) {
   element.innerHTML = str;
   return element;
 }
+
 export function renderView(view) {
   const sectionMain = document.querySelector(`.main`);
   sectionMain.innerHTML = ``;
@@ -28,6 +29,7 @@ export function calculateTotalScore(answersArr, lives) {
   }
   return totalScore;
 }
+
 export function getResults(statistics, currentResult) {
   if (currentResult.time === 0) {
     return `Время вышло! Вы не успели отгадать все мелодии`;
@@ -42,6 +44,7 @@ export function getResults(statistics, currentResult) {
   const beatenPercents = (sortedStats.length - rank) / (sortedStats.length - 1) * 100;
   return `Вы заняли ${rank} место из ${sortedStats.length} игроков. Это лучше, чем у ${beatenPercents}% игроков`;
 }
+
 export function decreaseLives(_lives) {
   if (_lives > 0) {
     _lives--;
@@ -50,6 +53,11 @@ export function decreaseLives(_lives) {
   }
   return _lives;
 }
+
 export function timeCountdown(_seconds) {
   return --_seconds;
+}
+
+export function addLeadZero(number) {
+  return number.toString().length < 2 ? `0${number}` : number;
 }
